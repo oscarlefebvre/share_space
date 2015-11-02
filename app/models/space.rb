@@ -1,3 +1,15 @@
 class Space < ActiveRecord::Base
+
+  CATEGORIES_EQUIPMENTS = ["Internet","Kitchen", "Projector", "Board", "Furniture"]
+  TYPE_OF_SPACE = ["Standing","Parliament", "Banquet", "U-Shape", "Theatre"]
+
   belongs_to :user
+  has_many :reservations
+
+ validates :address, presence: true, uniqueness: true
+ validates :availability, :inclusion: { in: [true, false]}
+ validates :price_per_day, :nb_of_pers, :description, presence: true
+ validates :equipments, presence: true, inclusion:{ in: CATEGORIES_EQUIPMENTS }
+ validates :type_of_space, presence: true, inclusion:{ in: TYPE_OF_SPACE }
+
 end
