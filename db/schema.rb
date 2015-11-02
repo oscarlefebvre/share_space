@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102105526) do
+ActiveRecord::Schema.define(version: 20151102180543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "space_id"
+    t.integer  "user_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.text     "review"
+    t.integer  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "reservations", ["space_id"], name: "index_reservations_on_space_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+
+  create_table "spaces", force: :cascade do |t|
+    t.string   "address"
+    t.boolean  "availability"
+    t.integer  "price_per_day"
+    t.integer  "nb_of_pers"
+    t.text     "description"
+    t.text     "equipements"
+    t.string   "type_of_space"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "spaces", ["user_id"], name: "index_spaces_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,4 +63,7 @@ ActiveRecord::Schema.define(version: 20151102105526) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "reservations", "spaces"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "spaces", "users"
 end
