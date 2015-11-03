@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:show]
   resources :spaces do
-    resource :reservations, only: [:new, :create]
+    resources :reservations, only: [:new, :create, :index]
   end
 end
   # The priority is based upon order of creation: first created -> highest priority.

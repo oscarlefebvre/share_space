@@ -1,0 +1,14 @@
+<div class="container">
+  <%if @bookings.length == 0%>
+    <h2 class="text-center"><%="You have no resa yet!"%></h2>
+  <%else%>
+  <h2 class="text-center">Overview of my resa </h2>
+  <div class="row">
+    <% @reservations.each do |reservation| %>
+      <div class="col-xs-12 col-md-6">
+        <%= render "card", reservation: reservation %>
+      </div>
+    <%end%>
+  <%end%>
+  </div>
+</div>
