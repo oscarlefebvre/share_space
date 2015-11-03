@@ -1,0 +1,20 @@
+<h2> Create your own space </h2>
+
+<%= simple_form_for @space do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :title, required: true %>
+    <%= f.input :address, required: true %>
+    <%= f.input :price_per_day, required: true %>
+    <%= f.input :equipements, required: true %>
+    <%= f.input :type_of_space, required: true %>
+    <%= f.input :nb_of_pers, required: true %>
+    <%= f.input :description, required: true %>
+    <%= f.input :availability, required: true %>
+    <%= f.input :picture %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create the Space" %>
+  </div>
+<% end %>
