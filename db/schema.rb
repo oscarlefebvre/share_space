@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102180543) do
+ActiveRecord::Schema.define(version: 20151103110709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,15 +32,16 @@ ActiveRecord::Schema.define(version: 20151102180543) do
 
   create_table "spaces", force: :cascade do |t|
     t.string   "address"
-    t.boolean  "availability"
+    t.boolean  "availability",  default: true
     t.integer  "price_per_day"
     t.integer  "nb_of_pers"
     t.text     "description"
     t.text     "equipements"
     t.string   "type_of_space"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "title"
   end
 
   add_index "spaces", ["user_id"], name: "index_spaces_on_user_id", using: :btree
@@ -58,6 +59,9 @@ ActiveRecord::Schema.define(version: 20151102180543) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
