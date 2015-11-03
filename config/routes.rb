@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :spaces do
-    resource :reservations, only: [:new, :create]
+    resources :reservations, only: [:new, :create, :index]
   end
 end
   # The priority is based upon order of creation: first created -> highest priority.

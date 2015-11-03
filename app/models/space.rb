@@ -6,7 +6,7 @@ class Space < ActiveRecord::Base
   belongs_to :user
   has_many :reservations, dependent: :destroy
 
-validates  :title, presence: true, length: { maximum: 20 }
+ validates :title, presence: true, length: { maximum: 20 }
  validates :address, presence: true, uniqueness: true
  validates :availability, inclusion: { in: [true, false]}
  validates :price_per_day, :nb_of_pers, :description, presence: true
