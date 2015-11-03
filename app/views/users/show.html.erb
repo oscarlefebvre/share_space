@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">My profil |  <%= link_to "Edit my profil", edit_user_registration_path %></div>
+      <div class="panel-body">
+        <ul>
+        <li><p><span>Email</span> <%= @user.email %></p></li><br>
+
+        <li><p><span>First Name</span> <%= @user.first_name %></p></li><br>
+        <li><p><span>Last Name</span> <%= @user.last_name %></p></li><br>
+        <li><p><span>First Name</span> <%= @user.first_name %></p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">My profil</div>
+      <div class="panel-body">
+        Email Address <%= @user.email %><br>
+        First Name <%= @user.first_name %><br>
+        Last Name <%= @user.last_name %><br>
+        First Name <%= @user.first_name %>
+      </div>
+    </div>
+  </div>
+</div>

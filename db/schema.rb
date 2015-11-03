@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103110709) do
+
+ActiveRecord::Schema.define(version: 20151103162436) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +34,20 @@ ActiveRecord::Schema.define(version: 20151103110709) do
 
   create_table "spaces", force: :cascade do |t|
     t.string   "address"
-    t.boolean  "availability",  default: true
+    t.boolean  "availability",         default: true
     t.integer  "price_per_day"
     t.integer  "nb_of_pers"
     t.text     "description"
     t.text     "equipements"
     t.string   "type_of_space"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "title"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "spaces", ["user_id"], name: "index_spaces_on_user_id", using: :btree
@@ -62,6 +68,11 @@ ActiveRecord::Schema.define(version: 20151103110709) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "picture"
+    t.string   "token"
+    t.datetime "token_expiry"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
