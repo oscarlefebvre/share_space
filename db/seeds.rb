@@ -84,6 +84,26 @@ Space.create({
   type_of_space: "Standing"
 })
 
+
+Space = [
+  {
+    title: "Old Fashioned",
+    foto: "http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg"
+    },
+  {
+    title: "Daiquiri",
+    foto: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-daiquiri.jpg"
+    },
+  {
+    title: "Margarita",
+    foto: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-margarita.jpg"
+    },
+  {
+    title: "Sidecar",
+    foto: "http://www.seriouseats.com/images/2014/11/20141101-cognac-sidecar-carey-jones.jpg"
+    }
+  ]
+
 Space.create({
   title: "Chez les bretons",
   address: "Quimper",
@@ -117,3 +137,4 @@ end
 
 
 
+>>>>>>> master

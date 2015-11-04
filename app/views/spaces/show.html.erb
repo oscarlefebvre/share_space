@@ -1,12 +1,7 @@
-<h2> Your Space / ID   </h2>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-         <%= image_tag @space.picture.url(:medium) %>
-      </div>
-    </div>
-  </div>
+<div class = "text-center">
+  <h1 > Here is you announce</h1>
+    <h3><%= @space.title %></h3>
+       <p><%= @space.description %></p>
+       <p><%= @space.price_per_day %></p>
+        <%= image_tag @space.picture.url(:medium) %>
 </div>
-
