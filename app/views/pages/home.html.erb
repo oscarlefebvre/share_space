@@ -1,3 +1,36 @@
-<div class="container"></div>
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url('https://images.unsplash.com/uploads/1412739483594d16c8046/a9a53469?ixlib=rb-0.3.5&q=80&fm=jpg&s=cb33c30f6fe3457eb2d511abcc60c839')">
+  <div class="container">
+    <div class="row">
+      <div class="banner-gradient"></div>
+      <div class="banner-content text-center">
+        <h1>RENT AN AWSOME SPACE</h1>
+        <p>Probably one of the best homepage of the day</p>
+        <div class="row padded text-center jumbotron">
+          <h3>How does it work ?</h3>
+          <p class="Enter a City"></p>
+          <%= simple_form_for @space, url: spaces_path, method: :get do |f| %>
+            <%= f.simple_fields_for :reservations do |p| %>
+              <div class="col-xs-12 col-sm-3">
+                <p><%= p.text_field :start_date , class: "datepicker", placeholder: "Check-in" %></p>
+              </div>
+              <div class="col-xs-12 col-sm-3">
+                <p><%= p.text_field :end_date,  class: "datepicker", placeholder: "Check-out" %></p>
+              </div>
+            <% end %>
+            <div class="col-xs-12 col-sm-3">
+            <%= f.input :type_of_space, collection: Space::TYPE_OF_SPACE %>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+            <%= f.submit "Search", class: "btn btn-primary btn-lg" %>
+            </div>
+          <% end %>
+          <p class="home-description-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

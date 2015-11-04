@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = @space.reservations.build(reservation_params)
     @reservation.save
-    redirect_to restaurants_path(@space_reservations)
+    redirect_to reservations_path(@space_reservations)
   end
 
   private

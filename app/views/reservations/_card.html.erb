@@ -1,0 +1,10 @@
+<!-- Code à revoir -->
+<div class="card">
+      <span class="card-bg" style="background-image:url(<%= reservation.space.picture.url %>)"></span>
+      <span class="card-shadow"></span>
+      <span class="card-text">
+        <h2><%= reservation.space.title %></h2>
+        <p><%= reservation.space.address %></p>
+      </span>
+      <%= link_to "",reservation_path(reservation), class: "card-link" %>
+</div>

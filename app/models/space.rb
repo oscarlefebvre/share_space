@@ -5,7 +5,7 @@ class Space < ActiveRecord::Base
 
   belongs_to :user
   has_many :reservations, dependent: :destroy
-
+  accepts_nested_attributes_for :reservations
 
  validates :title, presence: true, length: { maximum: 20 }
  validates :address, presence: true, uniqueness: true
