@@ -9,16 +9,21 @@
 
         <li><p><span>First Name</span> <%= @user.first_name %></p></li><br>
         <li><p><span>Last Name</span> <%= @user.last_name %></p></li><br>
-        <li><p><span>First Name</span> <%= @user.first_name %></p></li>
+        <p><%= image_tag @user.picture %></p>
         </ul>
       </div>
     </div>
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      <div class="panel-heading">My reservations</div>
+      <div class="panel-heading">MY RESERVATIONS</div>
       <div class="panel-body">
-        First Name <%= @user.picture %><br>
+         <% @user.reservations.each do |resa|%><br>
+         <li><p><span>Début de la réservation</span> :<%= resa.start_date %></p></li>
+         <li><p><span>Fin de votre réservation</span> :<%= resa.end_date %></p></li>
+        <li><p><span>Adresse de votre réservation</span> :<%= resa.space.address %></p></li>
+        <li><p><span class="label label-success">Price</span><%= resa.total_price %>€</p></li>
+         <%end%>
       </div>
     </div>
   </div>
