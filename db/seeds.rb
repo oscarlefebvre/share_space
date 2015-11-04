@@ -35,7 +35,7 @@ Space.create({
   availability: true,
   price_per_day: 30,
   nb_of_pers: 6,
-  description: "Degeulasse",
+  description: "Degeulasse mais ça passe",
   equipements: "Kitchen",
   type_of_space: "Standing"
 })
@@ -73,14 +73,37 @@ Space.create({
   type_of_space: "Standing"
 })
 
-6.times do
+Space.create({
+  title: "Chez Jeannot",
+  address: "Van Arteveldestraat 1, 2000 Luc, Belgium",
+  availability: true,
+  price_per_day: 30,
+  nb_of_pers: 6,
+  description: "Merdique",
+  equipements: "Kitchen",
+  type_of_space: "Standing"
+})
+
+Space.create({
+  title: "Chez les bretons",
+  address: "Quimper",
+  availability: true,
+  price_per_day: 30,
+  nb_of_pers: 6,
+  description: "On mange toujours bien chez nos amis Bretons",
+  equipements: "Kitchen",
+  type_of_space: "Standing"
+})
+
+10.times do
 
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     username: Faker::Internet.user_name,
-    password: Devise.friendly_token[0,20]
+    password: Devise.friendly_token[0,20],
+    picture: Faker::Avatar.image("my-own-slug", "150x150")
   )
   reservation = Reservation.create(
     space: Space.find(rand(1..4)),
