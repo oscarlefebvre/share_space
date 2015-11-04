@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-3">
-    <div class="panel panel-default">
+  <div class="col-md-4">
+    <div class="panel panel-primary">
       <div class="panel-heading">My profil |  <%= link_to "Edit my profil", edit_user_registration_path %></div>
       <div class="panel-body">
         <ul>
@@ -9,20 +9,20 @@
 
         <li><p><span>First Name</span> <%= @user.first_name %></p></li><br>
         <li><p><span>Last Name</span> <%= @user.last_name %></p></li><br>
-        <p><%= image_tag @user.picture %></p>
+        <p><span class="profil_picture"><%= image_tag @user.picture %></span></p>
         </ul>
       </div>
     </div>
   </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
+  <div class="col-md-8">
+    <div class="panel panel-primary">
       <div class="panel-heading">MY RESERVATIONS</div>
       <div class="panel-body">
          <% @user.reservations.each do |resa|%><br>
          <li><p><span>Début de la réservation</span> :<%= resa.start_date %></p></li>
          <li><p><span>Fin de votre réservation</span> :<%= resa.end_date %></p></li>
         <li><p><span>Adresse de votre réservation</span> :<%= resa.space.address %></p></li>
-        <li><p><span class="label label-success">Price</span><%= resa.total_price %>€</p></li>
+        <li><p><span class="label label-success">Price</span> <%= resa.total_price %>€</p></li>
          <%end%>
       </div>
     </div>

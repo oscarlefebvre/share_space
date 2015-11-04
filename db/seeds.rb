@@ -103,7 +103,7 @@ Space.create({
     email: Faker::Internet.email,
     username: Faker::Internet.user_name,
     password: Devise.friendly_token[0,20],
-    picture: Faker::Avatar.image("my-own-slug")
+    picture: Faker::Avatar.image("my-own-slug", "150x150")
   )
   reservation = Reservation.create(
     space: Space.find(rand(1..4)),
