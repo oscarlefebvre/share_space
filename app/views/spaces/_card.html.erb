@@ -1,0 +1,11 @@
+<div class="card">
+  <span class="card-bg" style="background-image:url('<%= image_url space.picture.url(:medium) %>')"></span>
+  <span class="card-text">
+    <h2><%=space.title %></h2>
+    <p><%=space.price_per_day %></p>
+  </span>
+  <span class="card-user">
+    <img src="<%= space.picture.url(:thumb) %>" class="avatar avatar-bordered"/>
+  </span>
+  <%= link_to "", space_path(space), class: "card-link" %>
+</div>
