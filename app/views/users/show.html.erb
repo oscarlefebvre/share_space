@@ -28,5 +28,28 @@
         </div>
       </div>
     </div>
+    <div class="col-md-8">
+      <div class="panel panel-success">
+        <div class="panel-heading">YOUR SPACES</div>
+        <div class="panel-body">
+           <% @user.spaces.each do |space|%><br>
+           <li><p><span>Name of space </span>
+            <% if @user.spaces.empty? %>
+              "You have no reservation"
+            <% else %>
+            :<%= space.title %></p>
+          </p></li>
+           <li><p>Address :<%= space.address %></p>
+          </p></li>
+          </li>
+           <li><p>Capacity :<%= space.nb_of_pers %></p>
+          </p></li>
+          <p><%= image_tag space.picture.url(:thumb) %></p>
+          </p>
+           <%end%>
+          <%end%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
