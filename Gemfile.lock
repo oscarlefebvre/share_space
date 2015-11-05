@@ -60,6 +60,7 @@ GEM
     bootstrap-slider-rails (5.2.6)
       railties (>= 3.2, < 5.0)
     builder (3.2.2)
+    bxslider-rails (4.2.5.1)
     byebug (5.0.0)
       columnize (= 0.9.0)
     climate_control (0.0.3)
@@ -222,6 +223,7 @@ DEPENDENCIES
   bootstrap-datepicker-rails
   bootstrap-sass
   bootstrap-slider-rails
+  bxslider-rails
   devise
   faker
   figaro

@@ -25,6 +25,9 @@ gem 'bootstrap-datepicker-rails'
 #Add gem for price selector space/index
 gem 'bootstrap-slider-rails'
 
+#Add gem for slider in space/show
+gem 'bxslider-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

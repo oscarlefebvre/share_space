@@ -1,7 +1,20 @@
-<div class = "text-center">
-  <h1 > Here is you announce</h1>
-  <h3><%= @space.title %></h3>
-  <p><%= @space.description %></p>
-  <p><%= @space.price_per_day %></p>
-  <%= image_tag @space.picture.url(:medium) %>
+<ul class="bxslider">
+  <li class="card-bg"><%= image_tag "https://unsplash.it/600/300?image=3" %></li>
+  <li class="card-bg"><%= image_tag "https://unsplash.it/600/300?image=3" %></li>
+  <li class="card-bg"><%= image_tag "https://unsplash.it/600/300?image=3" %></li>
+</ul>
+
+<div class="container">
+  <div class="col-xs-12 col-lg-8">
+    <div class="row page-header">
+      <h3><%= @space.title %></h3>
+    </div>
+    <div class="row jumbotron">
+      <h1>About this place</h1>
+      <p><%= @space.description %></p>
+      <p><%= @space.price_per_day %></p>
+    </div>
+  </div>
 </div>
+
+<%= @checkin %>

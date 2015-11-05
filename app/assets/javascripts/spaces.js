@@ -6,6 +6,12 @@ $(document).ready(function() {
    max: 1000,
    value: 50
   }
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({ format: "dd/mm/yyyy" });
+
+  $(".datepicker.update-link").on("change", function() {
+    $.post("/spaces/update_dates", { name: $(this).attr("name"), value: $(this).val() });
+  });
+
   $('.slider').slider(options);
+  $('.bxslider').bxSlider();
 });

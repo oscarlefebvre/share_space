@@ -3,4 +3,6 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require bootstrap-slider
+//= require bxslider
 //= require_tree .
+
