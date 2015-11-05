@@ -2,6 +2,7 @@
 class SpacesController < ApplicationController
 
   before_action :set_space, only: [:show, :edit, :update, :destroy ]
+  before_action :set_user, only: [:new, :create, :update]
 
   def index
     @spaces = Space.all
@@ -31,7 +32,7 @@ class SpacesController < ApplicationController
     end
     @space.nb_of_pers = nb_of_pers
     if @space.save
-      redirect_to space_path(@space)
+      redirect_to user_path(@user)
     else
     render :new
     end
@@ -55,7 +56,9 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def space_params
     params.require(:space).permit(:title, :address, :price_per_day, :description, :type_of_space, :picture, :availability)
