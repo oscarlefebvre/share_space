@@ -5,9 +5,18 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = Space.all
+    @reservation_attributes = params[:space][:reservations_attributes]["0"]
+  end
+
+  def update_dates
+    # params == { name: "checkin", value: "12/04/1224"}
+    session[params[:name]] = params[:value]
+    head 200
   end
 
   def show
+    @checkin = session["checkin"]
+    @checkout = session["checkout"]
   end
 
   def new

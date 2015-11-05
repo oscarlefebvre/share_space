@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: [:show]
   resources :spaces do
+    collection do
+      post 'update_dates'
+    end
     resources :reservations, only: [:new, :create, :index]
   end
 end
