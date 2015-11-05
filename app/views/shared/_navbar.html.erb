@@ -1,8 +1,8 @@
-<nav class="navbar-wagon navbar-wagon-fixed">
+<nav class="navbar-wagon">
   <div class="container navbar-wagon-container">
 
     <a href="">
-      <%= image_tag "logo.png" %>
+      <%= link_to (image_tag("logo.png", :alt => "home image", :width => 70, :height => 70)), root_path %>
     </a>
 
     <div class="navbar-wagon-pusher"></div>
@@ -50,6 +50,6 @@
       <%= link_to "Sign in with Facebook", omniauth_authorize_path('user', 'facebook'), class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
     <hr>
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to  t( ".top_call_to_action", default: "Add a space"), new_space_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 </nav>
