@@ -16,6 +16,20 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
+    equipements = params[:space][:equipements][0, params[:space][:equipements].size - 1]*', '
+    @space.equipements = equipements
+    range_of_pers = params[:space][:nb_of_pers]
+    case range_of_pers
+    when "1..10"
+      nb_of_pers = 1
+    when "10..20"
+      nb_of_pers = 10
+    when "20..30"
+      nb_of_pers = 20
+    else
+      nb_of_pers = 30
+    end
+    @space.nb_of_pers = nb_of_pers
     if @space.save
       redirect_to space_path(@space)
     else
@@ -44,7 +58,7 @@ class SpacesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
 
   def space_params
-    params.require(:space).permit(:title, :address, :price_per_day, :nb_of_pers, :description, :equipements, :type_of_space, :picture)
+    params.require(:space).permit(:title, :address, :price_per_day, :description, :type_of_space, :picture, :availability)
   end
 
 end
