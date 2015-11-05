@@ -1,28 +1,74 @@
-
-<h2 class = "text-center"> Create your own space </h2>
-
-  <div class="container">
-    <div class="row">
+<div class="panel panel-default">
+  <div class="class panel-heading text-center">
+    Create your beautiful space
+  </div>
+  <div class="class panel-body">
+    <div class="class container">
       <%= simple_form_for @space do |f| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="form-inputs">
-          <%= f.input :title, required: true %>
-          <%= f.input :address, required: true %>
-          <%= f.input :price_per_day, required: true %>
-          <%= f.input :equipements, required: true, collection: ["Internet","Kitchen", "Projector", "Board", "Furniture"] %>
+
+      <div class="row">
+        <div class="class col-md-4 select">
+          <div class="form-inputs">
+            <%= f.input :title, required: true %>
+          </div>
+        </div>
+
+        <div class="class col-md-4 select">
+          <div class="form-inputs">
+            <%= f.input :address, required: true %>
+          </div>
+        </div>
+
+        <div class="class col-md-4 select">
+          <div class="form-inputs">
+            <%= f.input :price_per_day, required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="class col-md-4">
+        <%= f.input :equipements, collection: Space::CATEGORIES_EQUIPMENTS, as: :check_boxes  %>
+        </div>
+
+        <div class="class col-md-4">
           <%= f.input :type_of_space, required: true, collection: ["Standing","Parliament", "Banquet", "U-Shape", "Theatre"] %>
-          <%= f.input :nb_of_pers, required: true, collection: [1..10,10..20, 20..30, "More than 30",] %>
+        </div>
+
+        <div class="class col-md-4">
+          <%= f.input :nb_of_pers, required: true, collection: [1..10,10..20, 20..30, "More than 30"] %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="class col-md-4">
           <%= f.input :description, required: true %>
+        </div>
+
+        <div class="class col-md-4">
           <%= f.input :availability, required: true %>
+        </div>
+
+        <div class="class col-md-4">
           <%= f.input :picture %>
         </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Create the Space" %>
       </div>
-    </div>
+
+      <div class="row text-center">
+        <div class="col-sm-12">
+          <div class="actions ">
+            <%= f.submit "Create the Space", class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+
+
     </div>
   </div>
-<% end %>
+</div>
+<%end%>
+
+
 
 
 
