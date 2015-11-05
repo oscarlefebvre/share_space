@@ -22,6 +22,9 @@ gem 'omniauth-facebook'
 #Add gem for date picker
 gem 'bootstrap-datepicker-rails'
 
+#Add gem for price selector space/index
+gem 'bootstrap-slider-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
