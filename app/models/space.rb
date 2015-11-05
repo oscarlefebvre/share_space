@@ -19,4 +19,7 @@ class Space < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

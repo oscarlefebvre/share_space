@@ -5,4 +5,6 @@
 //= require bootstrap-slider
 //= require bxslider
 //= require_tree .
+//= require underscore
+//= require gmaps/google
 

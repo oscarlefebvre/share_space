@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 ruby '2.2.3'
 gem 'faker'
@@ -28,6 +29,9 @@ gem 'bootstrap-slider-rails'
 #Add gem for slider in space/show
 gem 'bxslider-rails'
 
+#Add gem 'geocoder'
+gem "geocoder"
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
@@ -40,4 +44,12 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'puma'
+end
+
+#Add Dynamic mapping
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
 end
