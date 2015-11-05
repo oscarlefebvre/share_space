@@ -6,7 +6,13 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+    @space = Space.new
+    @reservation = @space.reservations.new
+
+
+    @reservation.end_date = params[:end_date].to_date
+    @reservation.start_date = params[:start_date].to_date
+    @reservation.total_price = params[:total_price].to_i
   end
 
   def create

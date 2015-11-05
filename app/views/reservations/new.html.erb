@@ -1,20 +1,26 @@
-<!-- app/views/reservation/new.html.erb -->
-<h1 class="text-center"> New reservation</h1>
- <div class="container">
-    <div class="row">
-    <%= simple_form_for @space, url: spaces_path, method: :get do |f| %>
-      <%= f.simple_fields_for :reservations do |p| %>
-        <div class="col-xs-12 col-sm-4">
-          <p><%= p.text_field :start_date , class: "datepicker", placeholder: "Check-in" %></p>
-          <p><%= p.text_field :end_date,  class: "datepicker", placeholder: "Check-out" %></p>
+
+<div class="text-center">
+  <h2>Recap of your Order</h2>
+  <hr>
+  <div class="row padded text-center jumbotron">
+    <h3>Dates and Type recap</h3>
+      <p class="Enter a City"></p>
+      <%= simple_form_for @space, url: spaces_path, method: :get do |f| %>
+        <%= f.simple_fields_for :reservations do |p| %>
+          <div class="col-xs-12 col-sm-3">
+            <p><%= p.text_field :start_date , class: "datepicker", placeholder: "Check-in" %></p>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <p><%= p.text_field :end_date,  class: "datepicker", placeholder: "Check-out" %></p>
+          </div>
           <% end %>
-      <%= f.input :type_of_space, collection: Space::TYPE_OF_SPACE %>
-      <%= f.submit "Book your space", class: "btn btn-primary btn-lg" %>
-      </div>
+          <div class="col-xs-12 col-sm-3">
+            <p><%= f.input :type_of_space, required: true, collection: ["Standing","Parliament", "Banquet", "U-Shape", "Theatre"] %></p>
+          </div>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <%= f.submit "Book", class: "btn btn-primary btn-lg" %>
+          </div>
     <% end %>
-    </div>
-  </div>
-
-
-
+</div>
 
