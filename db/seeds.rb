@@ -114,7 +114,3 @@ Space.create({
     total_price: Faker::Number.between(60, 400)
   )
 end
-
-
-
->>>>>>> master
