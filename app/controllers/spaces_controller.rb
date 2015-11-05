@@ -2,7 +2,7 @@
 class SpacesController < ApplicationController
 
   before_action :set_space, only: [:show, :edit, :update, :destroy ]
-  before_action :set_user, only: [:new, :create, :update]
+#  before_action :set_user, only: [:new, :create, :update]
 
   def index
     @spaces = Space.all
@@ -12,11 +12,16 @@ class SpacesController < ApplicationController
   end
 
   def new
-    @space = Space.new
+    if user_signed_in?
+      @space = Space.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
     @space = Space.new(space_params)
+    @space.user = current_user
     equipements = params[:space][:equipements][0, params[:space][:equipements].size - 1]*', '
     @space.equipements = equipements
     range_of_pers = params[:space][:nb_of_pers]
@@ -32,9 +37,9 @@ class SpacesController < ApplicationController
     end
     @space.nb_of_pers = nb_of_pers
     if @space.save
-      redirect_to user_path(@user)
+     redirect_to user_path(current_user)
     else
-    render :new
+      render :new
     end
   end
 
@@ -54,10 +59,6 @@ class SpacesController < ApplicationController
 
   def set_space
     @space = Space.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:id])
   end
 
   def space_params
