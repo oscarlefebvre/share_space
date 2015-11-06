@@ -9,14 +9,12 @@
           <h3>How does it work ?</h3>
           <p class="Enter a City"></p>
           <%= simple_form_for @space, url: spaces_path, method: :get do |f| %>
-            <%= f.simple_fields_for :reservations do |p| %>
-              <div class="col-xs-12 col-sm-3">
-                <p><%= p.text_field :start_date , class: "datepicker", placeholder: "Check-in" %></p>
-              </div>
-              <div class="col-xs-12 col-sm-3">
-                <p><%= p.text_field :end_date,  class: "datepicker", placeholder: "Check-out" %></p>
-              </div>
-            <% end %>
+            <div class="col-xs-12 col-sm-3">
+              <p><%= text_field_tag :start_date, nil, class: "datepicker", placeholder: "Check-in" %></p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <p><%= text_field_tag :end_date, nil, class: "datepicker", placeholder: "Check-out" %></p>
+            </div>
             <div class="col-xs-12 col-sm-3">
             <%= f.input :type_of_space, collection: Space::TYPE_OF_SPACE %>
             </div>
