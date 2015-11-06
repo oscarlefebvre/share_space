@@ -12,11 +12,11 @@
     <div class="row jumbotron">
       <div class="col-xs-12 col-md-3 ">
         <h4>Global info</h4>
-        <h5><%= @space.type_of_space %></h5>
-        <h5><%= @space.price_per_day %> €</h5>
-        <h5><%= @space.address %></h5>
-        <h5><%= @space.equipements %></h5>
-        <h5><%= @space.nb_of_pers %></h5>
+        <h5>Type of space: <%= @space.type_of_space %></h5>
+        <h5>Price: <%= @space.price_per_day %> €</h5>
+        <h5>Address: <%= @space.address %></h5>
+        <h5>Equipments: <%= @space.equipements %></h5>
+        <h5><%= @space.nb_of_pers %> pers</h5>
       </div>
       <div class="col-xs-12 col-md-6 ">
         <h4>Description</h4>
@@ -30,7 +30,7 @@
   <div class="col-xs-12 col-md-4">
     <div class="informations margin jumbotron">
       <div class="title page-header">
-        <h3>Your informations Ma Gueule</h3>
+        <h3>Your booking information</h3>
       </div>
       <%= simple_form_for [@space, @space.reservations.new], url: new_space_reservation_path(@space), method: :get do |f| %>
       <div class="row text-center">

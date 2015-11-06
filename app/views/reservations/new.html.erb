@@ -17,9 +17,16 @@
         <div class="card" z-default=30 z-hover=70>
           <h3> Price : <%= @total_price %> €</h3>
         </div>
+       <%=simple_form_for [@space, @reservation] do |f| %>
+         <%= f.input :start_date, :as => :hidden, :input_html => {:value => @checkin} %>
+         <%= f.input :end_date, :as => :hidden, :input_html => {:value => @checkout} %>
+         <%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+         <%=  f.submit "accept", class: "btn btn-primary  " %>
+          <%= link_to 'decline', root_path, class: 'btn btn-danger' %>
+         <% end -%>
 
-        <%= link_to 'decline', root_path, class: 'btn btn-danger' %>
-        <%= link_to 'accept', current_user, class: 'btn btn-primary' %>
+
+
 
         </div>
       </div>
