@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-8">
       <div class="searchbar">
         <div class="well">
-          Filter by price interval:
+          Filter by price Pitchoune:
           <b>€ 10</b>
           <div class="slider slider-horizontal" style="width: 414px;">
             <div class="slider-track">
@@ -17,8 +17,10 @@
             <b>€ 1000</b>
         </div>
       </div>
-      <div class="jesaispas">
+      <div class="jesaispas jumbotron">
+        <h5>Change the date Pitchoune</h5>
         <input type="text" class="datepicker update-link" name="checkin" value="<%= @start_date %>" placeholder: "Check-in">
+        <input type="text" class="datepicker update-link" name="checkout" value="<%= @end_date %>" placeholder: "Check-out">
       </div>
       <div class="search-results">
         <% @spaces.each do |space| %>
