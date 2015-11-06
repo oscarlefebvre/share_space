@@ -6,11 +6,9 @@
     </a>
 
     <div class="navbar-wagon-pusher"></div>
-
-
     <hr class="hidden-xs hidden-sm">
     <% if user_signed_in? %>
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
+      <%= link_to "", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
         <div class="icon-badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="icon-badge icon-badge-blue">3</div>
@@ -41,9 +39,11 @@
         </div>
       </div>
     <% else %>
-      <%# link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <%= link_to "Sign in with Facebook", omniauth_authorize_path('user', 'facebook'), class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
+    <hr>
+      <%= link_to "Sign in", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <hr>
     <%= link_to  t( ".top_call_to_action", default: "Add a space"), new_space_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
