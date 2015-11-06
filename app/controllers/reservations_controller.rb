@@ -6,7 +6,10 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    @checkin = session["checkin"]
+    @checkout = session["checkout"]
     @reservation = Reservation.new
+    @total_price = @space.price_per_day*5
   end
 
   def create
