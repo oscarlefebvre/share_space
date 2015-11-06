@@ -5,51 +5,76 @@
         <div class="panel-heading">My profil |  <%= link_to "Edit my profil", edit_user_registration_path %></div>
         <div class="panel-body">
           <ul>
-          <li><p><span>Email</span> <%= @user.email %></p></li><br>
-
-          <li><p><span>First Name</span> <%= @user.first_name %></p></li><br>
-          <li><p><span>Last Name</span> <%= @user.last_name %></p></li><br>
-          <div class="profil_picture"><%= image_tag @user.picture %></div>
+          <li><p><span></span> <%= @user.email %></p></li><br>
+          <div class="profil_picture "><%= image_tag @user.picture %></div>
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <div class="panel panel-success">
-        <div class="panel-heading">YOUR RESERVATIONS</div>
-        <div class="panel-body">
-           <% @user.reservations.each do |resa|%><br>
-           <li><p><span>Type of space : </span><%= resa.space.type_of_space %></p></li>
-           <li><p><span>Début de la réservation</span> :<%= resa.start_date %></p></li>
-           <li><p><span>Fin de votre réservation</span> :<%= resa.end_date %></p></li>
-          <li><p><span>Adresse de votre réservation</span> :<%= resa.space.address %></p></li>
-          <li><p><span class="label label-success">Price</span> <%= resa.total_price %>€</p></li>
-           <%end%>
+
+
+
+
+  <div class="row">
+    <div class="col-md-7">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-success">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Your Reservations
+                </a>
+              </h4>
+            </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                         <% @user.reservations.each do |resa|%><br>
+                     <li><p><span>Type of space : </span><%= resa.space.type_of_space %></p></li>
+                     <li><p><span>Début de la réservation</span> :<%= resa.start_date %></p></li>
+                     <li><p><span>Fin de votre réservation</span> :<%= resa.end_date %></p></li>
+                    <li><p><span>Adresse de votre réservation</span> :<%= resa.space.address %></p></li>
+                    <li><p><span class="label label-success">Price</span> <%= resa.total_price %>€</p></li>
+                     <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-success">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Your Spaces
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+                  <% @user.spaces.each do |space|%><br>
+                 <li><p>
+                  <% if @user.spaces.empty? %>
+                    "You have no reservation"
+                  <% else %>
+                  :<%= space.title %></p>
+                </p></li>
+                 <li><p>Address :<%= space.address %>
+                </p></li>
+                </li>
+                 <li><p>Capacity :<%= space.nb_of_pers %>
+                </p></li>
+                <p><%= image_tag space.picture.url(:thumb) %>
+                </p>
+                 <%end%>
+                <%end%>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-8">
-      <div class="panel panel-success">
-        <div class="panel-heading">YOUR SPACES</div>
-        <div class="panel-body">
-           <% @user.spaces.each do |space|%><br>
-           <li><p><span>Name of space </span>
-            <% if @user.spaces.empty? %>
-              "You have no reservation"
-            <% else %>
-            :<%= space.title %></p>
-          </p></li>
-           <li><p>Address :<%= space.address %></p>
-          </p></li>
-          </li>
-           <li><p>Capacity :<%= space.nb_of_pers %></p>
-          </p></li>
-          <p><%= image_tag space.picture.url(:thumb) %></p>
-          </p>
-           <%end%>
-          <%end%>
-        </div>
       </div>
+     </div>
     </div>
   </div>
 </div>
+
+
+
+
