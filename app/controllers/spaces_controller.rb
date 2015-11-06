@@ -6,7 +6,7 @@ class SpacesController < ApplicationController
 
   def index
     @spaces = Space.all
-    @markers = Gmaps4rails.build_markers(@space) do |space, marker|
+    @markers = Gmaps4rails.build_markers(@spaces) do |space, marker|
       marker.lat space.latitude
       marker.lng space.longitude
     end
@@ -23,8 +23,8 @@ class SpacesController < ApplicationController
     @checkin = session["checkin"]
     @checkout = session["checkout"]
     @space = Space.find(params[:id])
-    @space_coordinates = { lat: @space.lat, lng: @space.lng }
-    @alert_message = "You are viewing #{@space.name}"
+    @space_coordinates = { lat: @space.latitude, lng: @space.longitude }
+    @alert_message = "You are viewing {@space.name}"
   end
 
   def new
