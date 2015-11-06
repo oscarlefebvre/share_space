@@ -41,9 +41,10 @@
         </div>
       </div>
     <% else %>
-      <%# link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Sign in with Facebook", omniauth_authorize_path('user', 'facebook'), class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
+    <hr>
+    <%= link_to "Login", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <hr>
     <%= link_to  t( ".top_call_to_action", default: "Add a space"), new_space_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>

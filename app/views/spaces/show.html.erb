@@ -34,3 +34,16 @@
     </div>
   </div>
 </div>
+
+<div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @space_coordinates %>;
+      alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>
+</div>
+
