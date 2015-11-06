@@ -3,6 +3,5 @@ class PagesController < ApplicationController
   def home
     @space = Space.new
     @reservation = @space.reservations.new
-
   end
 end
